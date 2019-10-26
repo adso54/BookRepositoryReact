@@ -17,7 +17,7 @@ class Directory extends React.Component {
                     {
                         title: 'Solaris',
                         author: 'Stanisław Lem',
-                        imageUrl: 'https://cf1-taniaksiazka.statiki.pl/images/popups/247/56114100153KS.jpg',
+                        imageUrl: 'http://s.lubimyczytac.pl/upload/books/133000/133717/352x500.jpg',
                         id: '1'
                     },
                     {
