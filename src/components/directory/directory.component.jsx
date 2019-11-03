@@ -37,9 +37,9 @@ class Directory extends React.Component {
                     <div className='directory-menu'>
                         {
                             this.state.books.map(({id, ...props})=>(
-                            <div className='col-4'> 
+                           
                                 <MenuItem key={id} {...props}/>
-                            </div>
+                            
                            
                             ))
                         }

@@ -3,7 +3,7 @@ import React from 'react'
 import './menu-item.styles.scss'
 
 const MenuItem = ({title, author, imageUrl, id}) => (
-    <div className='menu-item card' id={id} >
+    <div className='menu-item card col-4' id={id} >
         
         <img src={imageUrl} className="card-img-top " alt="..."/>
         

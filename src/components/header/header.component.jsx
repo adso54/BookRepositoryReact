@@ -4,8 +4,12 @@ import { faUser, faSignInAlt } from '@fortawesome/free-solid-svg-icons'
 import './header.styles.scss';
 import { Link } from 'react-router-dom'
 import { auth } from '../../firebase/firebase.utils'
+import { connect } from 'react-redux';
+import CartIcon from '../cart-icon/cart-icon.component';
+import CartDropdown from '../cart-dropdown/cart-dropdown.component';
 
-const Header = ({currentUser}) => (
+const Header = ({currentUser, hidden}) => (
+<div>
 <nav className="navbar navbar-expand-lg navbar-light bg-light">
   <a className="navbar-brand" href='/'>BookRegister</a>
   <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -30,11 +34,21 @@ const Header = ({currentUser}) => (
           <div className='col-6 link'>
             <Link to='/signin'><FontAwesomeIcon icon={faSignInAlt} /> SignIn</Link>
           </div>
-        </div>
+        </div> 
       )}
+      <CartIcon/>
   </div>
-
+  { hidden ? null : <CartDropdown/>}
 </nav>
+
+</div>
 )
 
-export default Header;
+const mapStateToProps = ({user: { currentUser} , cart: { hidden }}) => (
+  {
+    currentUser,
+    hidden
+  }
+)
+
+export default connect(mapStateToProps)(Header);

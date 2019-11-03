@@ -1,5 +1,6 @@
 import React from 'react';
-import FormInput from '../../components/form-input/form-input.component'
+import FormInput from '../../components/form-input/form-input.component';
+import CustomButton from '../../components/custom-button/custom-button.component';
 
 import './registration.styles.scss';
 import '../../components/form-input/form-input.component';
@@ -93,8 +94,8 @@ class RegistrationForm extends React.Component {
                         id = 'confirmPassword'
                         value={this.state.confirmPassword}
                         handleChange = {this.handleChange}
-                    />
-                    <button className='btn btn-success'>Submit</button>
+                    />     
+                    <CustomButton type='submit'> Register </CustomButton>
                 </form>
             </div>
         )};
