@@ -3,12 +3,6 @@ import React from 'react';
 import MenuItem from '../menu-item/menu-item.component'
 import './directory.styles.scss';
 
-
-
-// const Directory = () => (
-//     <div>Directory</div>
-// );
-
 class Directory extends React.Component {
     constructor(){
         super()
@@ -36,11 +30,8 @@ class Directory extends React.Component {
                 <div className='row'>
                     <div className='directory-menu'>
                         {
-                            this.state.books.map(({id, ...props})=>(
-                           
-                                <MenuItem key={id} {...props}/>
-                            
-                           
+                            this.state.books.map((item)=>(
+                                <MenuItem key={item.id} item={item}/>
                             ))
                         }
                     </div>
