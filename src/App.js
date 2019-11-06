@@ -4,8 +4,10 @@ import { Switch, Route, Redirect } from 'react-router-dom'
 import { connect } from 'react-redux';
  
 import Header from './components/header/header.component';
+
 import HomePage from './pages/homepage/homepage.component';
 import NewBook from './pages/new-book/new-book.component';
+import CheckoutPage from './pages/checkout/checkout.component';
 import RegistrationForm from './pages/registration/registration.component'
 import SignInForm from './pages/sign-in/sign-in.component';
 
@@ -48,6 +50,7 @@ class App extends React.Component {
         <Switch>
           <Route exact path = '/' component = {HomePage}/>
           <Route path = '/new' component = {NewBook}/>
+          <Route exact path = '/checkout' component = {CheckoutPage} />
           <Route path = '/registration' render = {() => (
             this.props.currentUser ? (<Redirect to='/'/> 
             ) : (
