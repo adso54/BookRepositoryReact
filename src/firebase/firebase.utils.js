@@ -39,6 +39,45 @@ export const createUserProfileDocument = async (userAuth, additionalData) => {
   
     return userRef;
   };
+
+  export const createBookDocument = async (book, additionalData) => {
+    console.log(book)
+    if (!book) return;
+  
+    const bookRef = firestore.doc(`books/${book.id}`);
+  
+    const snapShot = await bookRef.get();
+  
+    if (!snapShot.exists) {
+      const { title, author, imageurl, id } = book;
+      try {
+        await bookRef.set({
+          title,
+          author,
+          imageurl,
+          id,
+          ...additionalData
+        });
+      } catch (error) {
+        console.log('error creating user', error.message);
+      }
+    }
+  
+    return bookRef;
+  };
+
+  export const getAllBooks = async () => { 
+    const books = [];
+    ( firestore.collection("books").get().then(function(querySnapshot) {
+      querySnapshot.forEach(function(doc) {
+          // doc.data() is never undefined for query doc snapshots
+          // console.log(doc.id, " => ", doc.data());
+          books.push(doc.data());
+      });
+  })
+  )
+  return books
+}
   
 export const auth = firebase.auth();
 export const firestore = firebase.firestore();

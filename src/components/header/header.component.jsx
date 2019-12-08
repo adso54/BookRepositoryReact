@@ -5,13 +5,10 @@ import './header.styles.scss';
 import { Link } from 'react-router-dom'
 import { auth } from '../../firebase/firebase.utils'
 import { connect } from 'react-redux';
-import CartIcon from '../cart-icon/cart-icon.component';
-import CartDropdown from '../cart-dropdown/cart-dropdown.component';
 import { selectCurrentUser } from '../../redux/user/user.selectors';
-import { selectCartHidden } from '../../redux/cart/cart.selectors';
 import { createStructuredSelector } from 'reselect';
 
-const Header = ({currentUser, hidden}) => (
+const Header = ({currentUser}) => (
 <div>
 <nav className="navbar navbar-expand-lg navbar-light bg-light">
   <a className="navbar-brand" href='/'>BookRegister</a>
@@ -39,9 +36,8 @@ const Header = ({currentUser, hidden}) => (
           </div>
         </div> 
       )}
-      <CartIcon/>
   </div>
-  { hidden ? null : <CartDropdown/>}
+  
 </nav>
 
 </div>
@@ -49,8 +45,7 @@ const Header = ({currentUser, hidden}) => (
 
 const mapStateToProps = createStructuredSelector(
   {
-    currentUser: selectCurrentUser,
-    hidden: selectCartHidden
+    currentUser: selectCurrentUser
   }
 )
 

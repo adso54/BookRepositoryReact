@@ -25,7 +25,7 @@ class RegistrationForm extends React.Component {
     }
 
     handleSubmit = async event => {
-        event.preventDefault();
+        
 
         const { email, password, confirmPassword, displayName } = this.state;
 

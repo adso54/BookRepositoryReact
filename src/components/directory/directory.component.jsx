@@ -3,11 +3,15 @@ import React from 'react';
 import MenuItem from '../menu-item/menu-item.component'
 import './directory.styles.scss';
 
+// import { getAllBooks } from '../../firebase/firebase.utils';
+
 class Directory extends React.Component {
     constructor(){
         super()
+        // const booksAll = getAllBooks();
         this.state = {
-                books: [
+                books: 
+                [
                     {
                         title: 'Solaris',
                         author: 'Stanisław Lem',
@@ -19,9 +23,16 @@ class Directory extends React.Component {
                         author: 'Andrzej Sapkowski',
                         imageUrl: 'https://cloud-cdn.virtualo.pl/covers/medium/220464.jpg',
                         id: '2'
+                    },
+                    {
+                        title: 'Why leaders eats last',
+                        author: 'Simon Sinek',
+                        imageUrl: 'https://cdn.bonito.pl/zdjecia/5/dd7dab61179-leaders-eat-last.jpg',
+                        id:'3'
                     }
                 ]
             }
+            
     }
 
     render() {
