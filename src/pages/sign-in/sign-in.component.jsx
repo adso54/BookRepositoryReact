@@ -58,11 +58,6 @@ class SignInForm extends React.Component {
                 </div>
             </div>
             </form>
-
-            
-            
-
-
         </div>
         )
     }

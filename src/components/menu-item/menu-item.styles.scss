@@ -2,16 +2,22 @@
     width: 22%;
     display: flex;
     flex-direction: column;
-    height: 350px;
+    margin: 20px auto;
     align-items: center;
     position: relative;
 
+    .card {
+      border: none; 
+    }
+
     .image {
         width: 100%;
-        height: 95%;
+        height: 400px;
         background-size: cover;
         background-position: center;
+        
         margin-bottom: 5px;
+
       }
 
     .custom-button {

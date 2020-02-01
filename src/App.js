@@ -9,6 +9,7 @@ import HomePage from './pages/homepage/homepage.component';
 import NewBook from './pages/new-book/new-book.component';
 import RegistrationForm from './pages/registration/registration.component'
 import SignInForm from './pages/sign-in/sign-in.component';
+import BookDetails from './pages/book-details/book-details.component'
 
 import { auth, createUserProfileDocument } from './firebase/firebase.utils';
 import { setCurrentUser } from './redux/user/user.action';
@@ -60,6 +61,7 @@ class App extends React.Component {
               <SignInForm/>
             )
           )}/>
+          <Route path = '/bookdetails/:id' component = {BookDetails}/>
         </Switch>
       </div>   
     );

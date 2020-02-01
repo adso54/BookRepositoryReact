@@ -14,14 +14,24 @@ class NewBook extends React.Component {
             title: '',
             author: '',
             imageurl: '',
-            id:''
+            id:'',
+            image: null,
+            progress: 0,
+            url: ''
         };
         
     }
 
     handleChange = event =>{
-        const { value, name} = event.target;
-        this.setState({ [name]: value});
+        
+        const { value, name, type} = event.target;
+        
+        if(type === 'file' && event.target.files[0]) {
+            const image = event.target.files[0];
+            this.setState({image: image})
+        } else {
+            this.setState({ [name]: value})
+        }    
     }
 
     handleSubmit = async event => {
@@ -38,7 +48,9 @@ class NewBook extends React.Component {
                 title: '',
                 author: '',
                 imageurl: '',
-                id: ''
+                id: '',
+                image: null,
+                progress: 0
             });
           } catch (error) {
             console.error(error);
@@ -67,16 +79,14 @@ class NewBook extends React.Component {
                 value={this.state.author}
                 handleChange = {this.handleChange}
             />
-            <FormInput 
-                type='text'
-                name = 'imageurl'
-                label = 'Image URL'
-                required
-                id = 'imageurl'
-                value={this.state.imageurl}
+             <FormInput 
+                type='file'
+                name = 'image'
+                label = ''
+                id = 'image'
                 handleChange = {this.handleChange}
             />
-            <FormInput 
+            {/* <FormInput 
                 type='text'
                 name = 'id'
                 label = 'Id in database'
@@ -84,7 +94,7 @@ class NewBook extends React.Component {
                 id = 'id'
                 value={this.state.id}
                 handleChange = {this.handleChange}
-            />
+            /> */}
             <CustomButton type='submit'> Create </CustomButton>
         </form>
     </div>
