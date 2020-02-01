@@ -1,5 +1,6 @@
 import React from 'react';
-import { getBookById } from '../../firebase/firebase.utils'
+import { getBookById } from '../../firebase/firebase.utils';
+import BouncingLoader from '../../components/loaders/bouncing-loader/bouncing-loader.component';
 
 import './book-details.styles.scss';
 
@@ -17,6 +18,7 @@ class BookDetails extends React.Component {
     }
 
     componentDidMount(){
+        
         const id = this.props.match.params.id
         getBookById(id)
         .then(retBook => this.setState({ book: retBook}))
@@ -27,9 +29,15 @@ class BookDetails extends React.Component {
            const {author, title, imageurl} = this.state.book;
         return(
             <div>
-                <h1>Title: {title}</h1>
-                <h2>Author: {author}</h2>
-                <img src={imageurl} alt='Img'/>
+                {!author ? 
+                    <BouncingLoader/>
+                : 
+                    <div>
+                        <h1>Title: {title}</h1>
+                        <h2>Author: {author}</h2>
+                        <img src={imageurl} alt='Img'/>
+                    </div>
+                }
             </div>
         )
     }
