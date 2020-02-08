@@ -14,6 +14,7 @@ const FormInput = ({handleChange, id, label, ...props}) => (
             : null
         }
         <input className='form-control form-input' id={id} {...props} onChange={handleChange}/>
+    
     </div>
 )
 

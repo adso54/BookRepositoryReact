@@ -1,8 +1,9 @@
 import React from 'react';
 import { getBookById } from '../../firebase/firebase.utils';
 import BouncingLoader from '../../components/loaders/bouncing-loader/bouncing-loader.component';
-
+// import FormInput from '../../components/form-input/form-input.component';
 import './book-details.styles.scss';
+import StarRating from '../../components/star-rating/star-rating.component';
 
 class BookDetails extends React.Component {
     constructor(){
@@ -32,12 +33,21 @@ class BookDetails extends React.Component {
                 {!author ? 
                     <BouncingLoader/>
                 : 
-                    <div>
-                        <h1>Title: {title}</h1>
-                        <h2>Author: {author}</h2>
-                        <img src={imageurl} alt='Img'/>
+                    <div className='book-details'>
+                        <div>
+                            <img src={imageurl} alt='Img'/>
+                        </div>
+                        <div>
+                            <h1>Title: {title}</h1>
+                            <h2>Author: {author}</h2>
+                            <StarRating />
+                        </div>
+                        
+                        
                     </div>
+
                 }
+
             </div>
         )
     }

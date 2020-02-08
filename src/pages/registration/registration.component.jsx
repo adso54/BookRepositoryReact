@@ -5,7 +5,7 @@ import CustomButton from '../../components/custom-button/custom-button.component
 import './registration.styles.scss';
 import '../../components/form-input/form-input.component';
 
-import { auth, createUserProfileDocument } from '../../firebase/firebase.utils';
+import { auth, createUserProfileDocument } from '../../firebase/firebase.auth';
 
 class RegistrationForm extends React.Component {
     constructor(){

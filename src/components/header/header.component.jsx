@@ -3,10 +3,11 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUser, faSignInAlt } from '@fortawesome/free-solid-svg-icons'
 import './header.styles.scss';
 import { Link } from 'react-router-dom'
-import { auth } from '../../firebase/firebase.utils'
+import { auth } from '../../firebase/firebase.auth'
 import { connect } from 'react-redux';
 import { selectCurrentUser } from '../../redux/user/user.selectors';
 import { createStructuredSelector } from 'reselect';
+
 
 const Header = ({currentUser}) => (
 <div>

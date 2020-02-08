@@ -11,7 +11,7 @@ import RegistrationForm from './pages/registration/registration.component'
 import SignInForm from './pages/sign-in/sign-in.component';
 import BookDetails from './pages/book-details/book-details.component'
 
-import { auth, createUserProfileDocument } from './firebase/firebase.utils';
+import { auth, createUserProfileDocument } from './firebase/firebase.auth';
 import { setCurrentUser } from './redux/user/user.action';
 
 

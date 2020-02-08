@@ -4,6 +4,7 @@ import './new-book.styles.scss';
 import FormInput from  '../../components/form-input/form-input.component';
 import CustomButton from '../../components/custom-button/custom-button.component';
 import { createBookDocument } from '../../firebase/firebase.utils';
+import StarRating from '../../components/star-rating/star-rating.component';
 
 
 class NewBook extends React.Component {
@@ -14,6 +15,9 @@ class NewBook extends React.Component {
             title: '',
             author: '',
             imageurl: '',
+            language: '',
+            rating: 0,
+            description: '',
             id:'',
             image: null,
             progress: 0,
@@ -25,14 +29,20 @@ class NewBook extends React.Component {
     handleChange = event =>{
         
         const { value, name, type} = event.target;
-        
         if(type === 'file' && event.target.files[0]) {
             const image = event.target.files[0];
             this.setState({image: image})
         } else {
             this.setState({ [name]: value})
         }    
+
     }
+
+    handleRatingChange = async ratingValue => {
+        this.setState({rating: ratingValue})
+        console.log(ratingValue);
+    }
+
 
     handleSubmit = async event => {
 
@@ -48,6 +58,9 @@ class NewBook extends React.Component {
                 title: '',
                 author: '',
                 imageurl: '',
+                language: '',
+                rating: 0,
+                description: '',
                 id: '',
                 image: null,
                 progress: 0
@@ -79,6 +92,15 @@ class NewBook extends React.Component {
                 value={this.state.author}
                 handleChange = {this.handleChange}
             />
+            <FormInput 
+                type='text'
+                name = 'language'
+                label = 'Language'
+                required
+                id = 'langueage'
+                value={this.state.language}
+                handleChange = {this.handleChange}
+            />
              <FormInput 
                 type='file'
                 name = 'image'
@@ -86,15 +108,7 @@ class NewBook extends React.Component {
                 id = 'image'
                 handleChange = {this.handleChange}
             />
-            {/* <FormInput 
-                type='text'
-                name = 'id'
-                label = 'Id in database'
-                required
-                id = 'id'
-                value={this.state.id}
-                handleChange = {this.handleChange}
-            /> */}
+            <StarRating rating ={this.state.rating} handleRatingChange={this.handleRatingChange}/>
             <CustomButton type='submit'> Create </CustomButton>
         </form>
     </div>
